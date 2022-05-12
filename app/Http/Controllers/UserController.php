@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-	public function __construct()
-	{
-		$this->middleware('role:admin');
-	}
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -31,9 +26,8 @@ class UserController extends Controller
 	 */
 	public function create()
 	{
-		$roles = roles();
 		$user = new User;
-		return view('users.create', compact('roles', 'user'));
+		return view('users.create', compact('user'));
 	}
 
 	/**
@@ -48,7 +42,6 @@ class UserController extends Controller
 			'name' => 'required|string',
 			'email' => 'required|string|email|unique:users',
 			'password' => 'required|confirmed',
-			'role' => 'required|in:admin,user'
 		]);
 
 		$data['password'] = Hash::make($data['password']);
@@ -78,8 +71,7 @@ class UserController extends Controller
 	 */
 	public function edit(User $user)
 	{
-		$roles = roles();
-		return view('users.edit', compact('user', 'roles'));
+		return view('users.edit', compact('user'));
 	}
 
 	/**
@@ -95,7 +87,6 @@ class UserController extends Controller
 			'name' => 'required|string',
 			'email' => 'required|string|email|unique:users,email,' . $user->id,
 			'password' => $request->password ? 'required|confirmed' : '',
-			'role' => 'required|in:admin,user'
 		]);
 
 		$data['name'] = $request->name;
@@ -103,11 +94,10 @@ class UserController extends Controller
 			$data['password'] = Hash::make('password');
 		}
 		$data['email'] = $request->email;
-		$data['role'] = $request->role;
 
 		$user->update($data);
 
-		return to_route('users.index')->withSuccess('Data succcessfully created.');
+		return to_route('users.index')->withSuccess('Data succcessfully updated.');
 	}
 
 	/**

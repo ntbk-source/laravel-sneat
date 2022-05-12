@@ -24,19 +24,11 @@ class DatabaseSeeder extends Seeder
 		User::factory(10)->create();
 		$data = [
 			[
-				'name' => 'Administrator',
-				'email' => 'admin@app.com',
-				'password' => Hash::make('password'),
-				'email_verified_at' => now(),
-				'role' => 'admin'
-			],
-			[
 				'name' => 'User',
 				'email' => 'user@app.com',
 				'password' => Hash::make('password'),
 				'email_verified_at' => now(),
-				'role' => 'user'
-			],
+			]
 		];
 		foreach ($data as $item) {
 			User::updateOrCreate($item);

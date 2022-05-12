@@ -5,7 +5,6 @@
 				<th>{{ __('#') }}</th>
 				<th>{{ __('Name') }}</th>
 				<th>{{ __('Email') }}</th>
-				<th>{{ __('Role') }}</th>
 				<th>{{ __('Is Verify') }}</th>
 				<th>{{ __('#') }}</th>
 			</tr>
@@ -16,7 +15,6 @@
 				<td>{{ $user->id }}</td>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->email }}</td>
-				<td>{{ $user->role }}</td>
 				<td>
 					<span class="badge bg-{{ $user->email_verified_at ? 'success' : 'danger' }}">
 						{{ $user->email_verified_at ? __('Verify') : __('Not verify') }}

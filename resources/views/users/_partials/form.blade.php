@@ -17,17 +17,6 @@
 		<x-invalid error="email" />
 	</div>
 
-	<div class="mb-3">
-		<x-label for="role" :value="__('Role')" />
-		<x-select name="role" id="role">
-			<option value="">{{ __('Choose one role') }}</option>
-			@foreach($roles as $role)
-			<option value="{{ $role['value'] }}" {{ $user->id ? selectedOption($user->role, $role['value']) : selectedOption(old('role'), $role['value']) }}>{{ $role['name'] }}</option>
-			@endforeach
-		</x-select>
-		<x-invalid error="role" />
-	</div>
-
 	@if($user->id)
 	<div class="mb-3">
 		<x-label for="password" :value="__('Password')" />

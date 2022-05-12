@@ -40,7 +40,7 @@
 										{{ user()->name }}
 									</span>
 									<small class="text-muted">
-										{{ user()->role }}
+										User
 									</small>
 								</div>
 							</div>

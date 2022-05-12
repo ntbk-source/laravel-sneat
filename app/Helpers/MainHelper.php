@@ -42,21 +42,3 @@ if (!function_exists('selectedOption')) {
 		return $index === $value ? 'selected' : '';
 	}
 }
-
-if (!function_exists('roles')) {
-	function roles()
-	{
-		$roles = [
-			[
-				'name' => 'Admin',
-				'value' => 'admin',
-			],
-			[
-				'name' => 'User',
-				'value' => 'user',
-			],
-		];
-
-		return $roles;
-	}
-}

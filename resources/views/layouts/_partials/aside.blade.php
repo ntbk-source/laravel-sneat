@@ -58,7 +58,6 @@
 			</a>
 		</li>
 
-		@isRole(['admin'])
 		<li class="menu-header small text-uppercase">
 			<span class="menu-header-text">
 				{{ __('Management pages') }}
@@ -74,7 +73,6 @@
 			</a>
 		</li>
 
-		@endisRole
 
 		<!-- <li class="menu-item">
 			<a href="javascript:void(0);" class="menu-link menu-toggle">
